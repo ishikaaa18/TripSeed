@@ -1,0 +1,104 @@
+.about-section {
+  padding: 40px 20px;
+  background-color: var(--bg-main);
+  color: var(--text-light);
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+  background-color: rgba(255, 255, 255, 0.03);
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.about-text::before {
+  content: "ABOUT US";
+  position: absolute;
+  top: -36px;
+  left: 20px;
+  background-color: #1e3a8a;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px 20px 0 0;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.about-text:hover {
+  transform: translateY(-6px);
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  margin-bottom: 20px;
+  color: #cfd9e4;
+  font-weight: 400;
+  text-align: justify;
+}
+
+.about-image {
+  flex: 1;
+  min-width: 280px;
+  text-align: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.6));
+}
+
+/* ✅ Responsive Design for Tablets and Phones */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .about-text,
+  .about-image {
+    width: 100%;
+  }
+
+  .about-text::before {
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.1rem;
+    padding: 6px 16px;
+    top: -30px;
+  }
+
+  .about-text p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-text {
+    padding: 20px;
+  }
+
+  .about-text::before {
+    font-size: 1rem;
+    top: -28px;
+  }
+}

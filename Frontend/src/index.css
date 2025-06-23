@@ -1,0 +1,16 @@
+:root {
+  --bg-main: #0d1b2a;
+  --bg-secondary: #1b263b;
+  --card-bg: #243447;
+  --text-light: #e0e1dd;
+  --accent: #3d5a80;
+  --button-bg: #3d5a80;
+  --button-hover: #517ea7;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-light);
+}
