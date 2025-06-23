@@ -7,6 +7,7 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   flex-wrap: wrap;
   position: relative;
+  z-index: 1000;
 }
 
 .logo {
@@ -42,39 +43,40 @@
 }
 
 .nav-links a:hover {
-  color: var(--accent);
+  color: var(--accent, #e76f51);
 }
 
-/* ✅ Responsive Styles */
+/* ✅ Mobile Styles */
 @media (max-width: 768px) {
   .nav-links {
     flex-direction: column;
+    align-items: center;
     width: 100%;
     display: none;
     background-color: #1e293b;
     margin-top: 20px;
     padding: 20px 0;
     border-top: 1px solid #334155;
+    transition: all 0.3s ease;
   }
 
   .nav-links.show {
     display: flex;
-    align-items: center;
   }
 
   .header {
-    padding: 20px;
+    padding: 16px 20px;
   }
 
   .menu-toggle {
     display: block;
     cursor: pointer;
     color: #f1f5f9;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 }
 
-/* Optional: Initially hidden menu toggle */
+/* ✅ Always hidden on desktop */
 .menu-toggle {
   display: none;
 }
