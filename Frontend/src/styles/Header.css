@@ -1,13 +1,16 @@
 .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 95%;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 40px;
-  background-color: #0f172a;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  flex-wrap: wrap;
-  position: relative;
-  z-index: 1000;
+  padding: 20px 10px;
+  background: transparent;
+  color: white;
+  transition: all 0.3s ease;
 }
 
 .logo {
@@ -24,8 +27,7 @@
 .logo-text {
   font-size: 1.8rem;
   font-weight: 600;
-  color: #f1f5f9;
-  letter-spacing: 0.5px;
+  color: #ffffff;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -36,47 +38,41 @@
 }
 
 .nav-links a {
-  color: #f1f5f9;
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 .nav-links a:hover {
-  color: var(--accent, #e76f51);
+  color: var(--accent);
 }
 
-/* ✅ Mobile Styles */
+.menu-toggle {
+  display: none;
+}
+
+/* ✅ Responsive */
 @media (max-width: 768px) {
   .nav-links {
     flex-direction: column;
-    align-items: center;
     width: 100%;
     display: none;
-    background-color: #1e293b;
+    background-color: rgba(15, 23, 42, 0.95);
     margin-top: 20px;
     padding: 20px 0;
     border-top: 1px solid #334155;
-    transition: all 0.3s ease;
   }
 
   .nav-links.show {
     display: flex;
-  }
-
-  .header {
-    padding: 16px 20px;
+    align-items: center;
   }
 
   .menu-toggle {
     display: block;
+    font-size: 1.5rem;
     cursor: pointer;
-    color: #f1f5f9;
-    font-size: 1.6rem;
+    color: white;
   }
-}
-
-/* ✅ Always hidden on desktop */
-.menu-toggle {
-  display: none;
 }

@@ -6,7 +6,7 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="header">
+    <header className="header transparent">
       <div className="logo">
         <img src="/logo.svg" alt="Logo" className="logo-image" />
         <div className="logo-text">TripSeed</div>

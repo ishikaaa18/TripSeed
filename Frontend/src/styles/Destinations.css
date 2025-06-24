@@ -17,6 +17,7 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 24px;
+  perspective: 1500px;
 }
 
 .card {
@@ -25,14 +26,18 @@
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   width: 300px;
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.3s ease;
   transform-style: preserve-3d;
   backface-visibility: hidden;
+  position: relative;
+  text-align: center;
 }
 
 .card:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(231, 111, 81, 0.2);
+  transform: scale(1.08) translateY(-12px);
+  z-index: 2;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  filter: brightness(1.05);
 }
 
 .card img {
@@ -43,7 +48,7 @@
 }
 
 .card h3 {
-  margin: 15px 0 5px;
+  margin: 15px 0 8px;
   font-size: 1.2rem;
   font-weight: 600;
   color: #f1f5f9;
@@ -51,8 +56,32 @@
 
 .card p {
   font-size: 0.95rem;
-  padding: 0 12px 20px;
+  padding: 0 12px;
   color: #cbd5e1;
+  margin-bottom: 10px;
+}
+
+.trip-info {
+  font-size: 0.9rem;
+  color: #fcd34d;
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.book-now {
+  background-color: #e76f51;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-bottom: 20px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background-color 0.3s ease;
+}
+
+.book-now:hover {
+  background-color: #d65a3c;
 }
 
 /* ✅ Tablet Screens (≤ 900px) */
@@ -73,7 +102,12 @@
     font-size: 1.1rem;
   }
 
-  .card p {
+  .card p,
+  .trip-info {
+    font-size: 0.9rem;
+  }
+
+  .book-now {
     font-size: 0.9rem;
   }
 }
@@ -103,8 +137,14 @@
     font-size: 1.05rem;
   }
 
-  .card p {
+  .card p,
+  .trip-info {
     font-size: 0.87rem;
+  }
+
+  .book-now {
+    font-size: 0.88rem;
+    padding: 9px 18px;
   }
 }
 
@@ -118,9 +158,10 @@
     font-size: 1rem;
   }
 
-  .card p {
+  .card p,
+  .trip-info {
     font-size: 0.85rem;
-    padding: 0 10px 16px;
+    padding: 0 10px;
   }
 
   .card img {
@@ -129,5 +170,10 @@
 
   .destinations h2 {
     font-size: 1.4rem;
+  }
+
+  .book-now {
+    font-size: 0.85rem;
+    padding: 8px 16px;
   }
 }
