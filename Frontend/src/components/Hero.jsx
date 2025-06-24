@@ -1,14 +1,14 @@
 import React from 'react';
 import '../styles/Hero.css';
 import { FaSearch } from 'react-icons/fa';
-import bgVideo from '../assets/bg-video.mp4';
+import bgVideo from '../assets/bg-video.webm'; // ✅ import video file
 import RotatingText from './RotatingText'; // ✅ import component
 
 const Hero = () => {
   return (
     <section className="hero-section">
       <video autoPlay loop muted playsInline className="hero-video">
-        <source src={bgVideo} type="video/mp4" />
+        <source src={bgVideo} type="video/webm" />
         Your browser does not support the video tag.
       </video>
 
