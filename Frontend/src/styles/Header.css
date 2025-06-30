@@ -1,18 +1,20 @@
+/* 🌐 Header container - full width + transparent overlay */
 .header {
-  position: absolute;
+  position: absolute; /* sits on top of hero */
   top: 0;
   left: 0;
-  width: 95%;
+  width: 100%;
   z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 10px;
+  padding: 20px 40px;
   background: transparent;
   color: white;
-  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
+/* 🌟 Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -31,6 +33,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
+/* 🧭 Desktop Nav */
 .nav-links {
   list-style: none;
   display: flex;
@@ -48,31 +51,35 @@
   color: var(--accent);
 }
 
+/* ☰ Hamburger */
 .menu-toggle {
   display: none;
+  font-size: 1.6rem;
+  color: white;
+  cursor: pointer;
 }
 
-/* ✅ Responsive */
+/* 📱 Mobile Menu */
 @media (max-width: 768px) {
   .nav-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
     flex-direction: column;
-    width: 100%;
     display: none;
-    background-color: rgba(15, 23, 42, 0.95);
-    margin-top: 20px;
+    background-color: rgba(15, 23, 42, 0.95); /* dark semi-transparent */
     padding: 20px 0;
     border-top: 1px solid #334155;
+    text-align: center;
+    gap: 20px;
   }
 
   .nav-links.show {
     display: flex;
-    align-items: center;
   }
 
   .menu-toggle {
     display: block;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: white;
   }
 }

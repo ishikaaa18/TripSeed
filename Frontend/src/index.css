@@ -1,16 +1,28 @@
 :root {
-  --bg-main: #0d1b2a;
-  --bg-secondary: #1b263b;
-  --card-bg: #243447;
-  --text-light: #e0e1dd;
-  --accent: #3d5a80;
-  --button-bg: #3d5a80;
-  --button-hover: #517ea7;
+  /* 🌑 Backgrounds */
+  --bg-main: #003d5b;            /* Indigo Dye - dark base */
+  --bg-secondary: #30638e;       /* Lapis Lazuli - section contrast */
+  --card-bg: #00798c;            /* Caribbean Current - card default */
+
+  /* ✨ Text */
+  --text-light: #f1f5f9;         /* Light text for dark backgrounds */
+
+  /* 🎯 Accents */
+  --accent: #edae49;             /* Hunyadi Yellow - buttons / highlights */
+  --button-bg: #edae49;
+  --button-hover: #d18c2c;       /* Darker shade of yellow for hover */
+
+  /* 🩷 Additional Custom Colors (for destination-specific cards) */
+  --goa-theme: #edae49;          /* Sunny beach vibe */
+  --paris-theme: #d1495b;        /* Romantic feel */
+  --manali-theme: #00798c;       /* Cool mountains */
+  --dubai-theme: #30638e;        /* Modern luxury */
 }
 
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
+  font-family: 'Quicksand', sans-serif;
   background-color: var(--bg-main);
   color: var(--text-light);
 }

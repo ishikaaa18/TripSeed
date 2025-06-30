@@ -7,57 +7,116 @@
 .destinations h2 {
   font-size: 2.2rem;
   margin-bottom: 30px;
-  color: #f1f5f9;
+  color: var(--text-light);
   font-weight: 600;
   letter-spacing: 0.5px;
 }
 
+/* 🔄 Horizontal Scroll Area with Auto-Scroll */
 .cards {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   gap: 24px;
-  perspective: 1500px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;      /* IE 10+ */
+  max-width: 100%;
+  margin: 0 auto;                /* center the scroll container */
+  box-sizing: border-box;
 }
 
+.cards::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari */
+}
+
+
+/* 🛑 Pause scroll on hover */
+.cards:hover {
+  animation-play-state: paused;
+}
+
+/* 🎞️ Auto scroll animation */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* 🎴 Card Styles */
 .card {
-  background-color: var(--bg-card);
+  flex: 0 0 25%;
+  background-color: var(--card-bg);
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  width: 300px;
   overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease, filter 0.3s ease;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
-  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   text-align: center;
 }
 
+/* 🔄 Responsive Widths */
+@media (max-width: 1024px) {
+  .card {
+    flex: 0 0 33.333%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 500px) {
+  .card {
+    flex: 0 0 85%;
+  }
+}
+
+/* 🔸 Custom Color Cards */
+.card:nth-child(1) {
+  background-color: var(--goa-theme);
+  color: #1f1f1f;
+}
+.card:nth-child(2) {
+  background-color: var(--manali-theme);
+}
+.card:nth-child(3) {
+  background-color: var(--dubai-theme);
+}
+.card:nth-child(4) {
+  background-color: var(--paris-theme);
+}
+
+/* Hover Effect */
 .card:hover {
   transform: scale(1.08) translateY(-12px);
   z-index: 2;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-  filter: brightness(1.05);
 }
 
+/* Card Inner */
 .card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  transition: transform 0.3s ease;
 }
 
 .card h3 {
   margin: 15px 0 8px;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #f1f5f9;
+  color: var(--text-light);
 }
 
 .card p {
   font-size: 0.95rem;
   padding: 0 12px;
-  color: #cbd5e1;
+  color: #f1f5f9;
   margin-bottom: 10px;
 }
 
@@ -69,8 +128,8 @@
 }
 
 .book-now {
-  background-color: #e76f51;
-  color: white;
+  background-color: var(--button-bg);
+  color: #1f1f1f;
   border: none;
   padding: 10px 20px;
   margin-bottom: 20px;
@@ -81,99 +140,5 @@
 }
 
 .book-now:hover {
-  background-color: #d65a3c;
-}
-
-/* ✅ Tablet Screens (≤ 900px) */
-@media (max-width: 900px) {
-  .cards {
-    gap: 20px;
-  }
-
-  .card {
-    width: 260px;
-  }
-
-  .card img {
-    height: 170px;
-  }
-
-  .card h3 {
-    font-size: 1.1rem;
-  }
-
-  .card p,
-  .trip-info {
-    font-size: 0.9rem;
-  }
-
-  .book-now {
-    font-size: 0.9rem;
-  }
-}
-
-/* ✅ Mobile Screens (≤ 600px) */
-@media (max-width: 600px) {
-  .cards {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .card {
-    width: 90%;
-    max-width: 320px;
-  }
-
-  .destinations h2 {
-    font-size: 1.6rem;
-  }
-
-  .card img {
-    height: 160px;
-  }
-
-  .card h3 {
-    font-size: 1.05rem;
-  }
-
-  .card p,
-  .trip-info {
-    font-size: 0.87rem;
-  }
-
-  .book-now {
-    font-size: 0.88rem;
-    padding: 9px 18px;
-  }
-}
-
-/* ✅ Extra Small Screens (≤ 400px) */
-@media (max-width: 400px) {
-  .card {
-    width: 100%;
-  }
-
-  .card h3 {
-    font-size: 1rem;
-  }
-
-  .card p,
-  .trip-info {
-    font-size: 0.85rem;
-    padding: 0 10px;
-  }
-
-  .card img {
-    height: 150px;
-  }
-
-  .destinations h2 {
-    font-size: 1.4rem;
-  }
-
-  .book-now {
-    font-size: 0.85rem;
-    padding: 8px 16px;
-  }
+  background-color: var(--button-hover);
 }

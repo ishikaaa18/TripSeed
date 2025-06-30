@@ -1,11 +1,18 @@
+/* 🌍 Hero section layout */
 .hero-section {
   position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  background-color: black;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  font-family: 'Quicksand', sans-serif;
 }
 
+/* 🎥 Background video */
 .hero-video {
   position: absolute;
   top: 0;
@@ -13,190 +20,130 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: 0;
+  z-index: -2;
+  filter: brightness(0.65);
 }
 
-/* Top Shade Overlay */
+/* 🟦 Top gradient overlay */
 .hero-top-shade {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(15, 23, 42, 0.9));
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.3));
+  z-index: -1;
 }
 
-/* Content Over Video */
+/* ✨ Hero content area */
 .hero-content {
   position: relative;
   z-index: 2;
   text-align: center;
-  padding: 200px 20px;
-  color: white;
+  padding: 20px;
+  max-width: 800px;
 }
 
+/* 🌈 Gradient heading text */
 .hero-content h1 {
-  font-size: 2.7rem;
-  margin-bottom: 60px;
-  font-weight: bold;
+  font-size: 2.8rem;
+  background: linear-gradient(to right, #ff9a8b, #ff6f61, #d387ab);
+  -webkit-background-clip: text;
+  background-clip: text; /* 🔧 Add this */
+  -webkit-text-fill-color: transparent;
+  color: transparent;    /* Optional fallback */
+  font-weight: 700;
+  margin-bottom: 20px;
 }
 
+
+/* 🌸 Subtitle / tagline */
 .hero-content p {
-  font-size: 1.3rem;
-  margin-bottom: 30px;
-  max-width: 450px;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 1.1rem;
+  color: #a8dadc;
+  margin-bottom: 32px;
+  font-weight: 500;
 }
 
-/* Search Section */
+/* ✨ Wrapper added for glow */
+.glow-wrap {
+  display: inline-block;
+  border-radius: 44px;
+  position: relative;
+}
+
+/* 🔍 Search bar with glass effect */
 .hero-search {
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 20px auto 0 auto;
-  background: rgba(255, 255, 255, 0.85);
-  padding: 12px 20px;
-  border-radius: 30px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-  max-width: 600px;
-  width: 100%;
-  gap: 10px;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 40px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 14px 24px;
+  gap: 14px;
+  width: 30vw;
+  max-width: 900px;
+  margin: 24px auto;
+  z-index: 1; /* ensures it's above the glow */
 }
 
 .hero-search input {
   flex: 1;
   border: none;
+  background: transparent;
   outline: none;
+  padding: 10px 16px;
   font-size: 1rem;
-  padding: 10px 15px;
-  border-radius: 50px;
+  color: white;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.hero-search input::placeholder {
+  color: #fcd5ce;
 }
 
 .hero-search .search-icon {
-  margin-right: 10px;
-  color: var(--accent, #e76f51);
-  font-size: 1.5rem;
+  color: #ff6f61;
+  font-size: 1.2rem;
 }
 
 .hero-search button {
-  background: #e76f51;
+  background-color: #ff6f61;
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-size: 1rem;
+  padding: 10px 18px;
+  border-radius: 24px;
+  font-size: 0.95rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .hero-search button:hover {
-  background: #d65a3c;
+  background-color: #ff4d4d;
+  transform: scale(1.05);
 }
 
-/* Tablet */
+/* 📱 Responsive */
 @media (max-width: 768px) {
-  .hero-section {
-    height: 400px;
-  }
-
-  .hero-content {
-    padding: 80px 20px;
-  }
-
   .hero-content h1 {
-    font-size: 2rem;
-  }
-
-  .hero-content p {
-    font-size: 1rem;
-    max-width: 90%;
+    font-size: 2.1rem;
   }
 
   .hero-search {
     flex-direction: column;
-    align-items: stretch;
-    padding: 15px;
-    border-radius: 20px;
+    gap: 10px;
+    padding: 16px;
+    border-radius: 24px;
   }
 
   .hero-search input,
   .hero-search button {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 12px;
   }
-
-  .hero-search .search-icon {
-    align-self: flex-start;
-    font-size: 1.3rem;
-    margin: 0 0 10px 5px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 480px) {
-  .hero-section {
-    height: 350px;
-  }
-
-  .hero-content {
-    padding: 60px 15px;
-  }
-
-  .hero-content h1 {
-    font-size: 1.6rem;
-  }
-
-  .hero-content p {
-    font-size: 0.95rem;
-  }
-
-  .hero-search .search-icon {
-    font-size: 1.2rem;
-    margin: 0 0 8px 5px;
-  }
-
-  .hero-search input,
-  .hero-search button {
-    font-size: 0.95rem;
-    padding: 10px;
-  }
-}
-
-.text-rotate {
-  display: flex;
-  flex-wrap: wrap;
-  white-space: pre-wrap;
-  position: relative;
-}
-
-.text-rotate-sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.text-rotate-word {
-  display: inline-flex;
-}
-
-.text-rotate-lines {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-}
-
-.text-rotate-element {
-  display: inline-block;
-}
-
-.text-rotate-space {
-  white-space: pre;
 }

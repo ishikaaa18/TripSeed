@@ -4,7 +4,7 @@ import '../styles/Destinations.css';
 import goaImg from '../assets/goa.jpg';
 import manaliImg from '../assets/manali.jpg';
 import dubaiImg from '../assets/dubai.jpg';
-import parisImg from '../assets/paris.jpg'; 
+import parisImg from '../assets/paris.jpg';
 
 const destinations = [
   {
@@ -38,16 +38,20 @@ const destinations = [
 ];
 
 const Destinations = () => {
+  const repeatedDestinations = [...destinations, ...destinations]; // repeat for infinite scroll effect
+
   return (
     <section className="destinations">
       <h2>Top Destinations</h2>
       <div className="cards">
-        {destinations.map((place, index) => (
+        {repeatedDestinations.map((place, index) => (
           <div className="card" key={index}>
             <img src={place.image} alt={place.name} />
             <h3>{place.name}</h3>
             <p>{place.description}</p>
-            <p className="trip-info"><strong>{place.duration}</strong> &nbsp;|&nbsp; <span>{place.price}</span></p>
+            <p className="trip-info">
+              <strong>{place.duration}</strong> &nbsp;|&nbsp; <span>{place.price}</span>
+            </p>
             <button className="book-now">Book Now</button>
           </div>
         ))}

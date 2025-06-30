@@ -1,12 +1,13 @@
 import React from 'react';
 import '../styles/Hero.css';
 import { FaSearch } from 'react-icons/fa';
-import bgVideo from '../assets/bg-video.webm'; // ✅ import video file
-import RotatingText from './RotatingText'; // ✅ import component
+import bgVideo from '../assets/bg-video.webm';
+import TrueFocus from '../components/TrueFocus';
 
 const Hero = () => {
   return (
     <section className="hero-section">
+      {/* 🎥 Background video */}
       <video autoPlay loop muted playsInline className="hero-video">
         <source src={bgVideo} type="video/webm" />
         Your browser does not support the video tag.
@@ -15,20 +16,20 @@ const Hero = () => {
       <div className="hero-top-shade"></div>
 
       <div className="hero-content">
-        <h1>
-          <RotatingText
-            texts={['Explore the World', 'Find Your Dream Place', 'Travel with Us', 'Create Memories']}
-            mainClassName="overflow-hidden text-3xl sm:text-4xl md:text-5xl font-bold"
-            splitLevelClassName="block"
-            initial={{ y: "100%" }}
-            animate={{ y: 0 }}
-            exit={{ y: "-100%" }}
-            transition={{ type: "spring", damping: 30, stiffness: 400 }}
-            rotationInterval={2500}
-          />
-        </h1>
+        {/* ✨ Animated Heading */}
+        <TrueFocus
+          sentence="Travel With Us"
+          blurAmount={4}
+          borderColor="#f59e0b"
+          glowColor="rgba(255, 186, 73, 0.5)"
+          animationDuration={0.6}
+          pauseBetweenAnimations={1.6}
+        />
+
+        {/* Subtitle */}
         <p>Where Every Experience Counts!</p>
 
+        {/* 🔍 Search bar (original) */}
         <div className="hero-search">
           <FaSearch className="search-icon" />
           <input type="text" placeholder="Enter Your Dream Destination!" />
