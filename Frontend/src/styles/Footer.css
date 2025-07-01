@@ -1,83 +1,138 @@
 .footer {
-  background-color: #0f172a;
-  color: #cbd5e1;
-  padding: 40px 20px 20px;
-  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to right, #0f172a, #0e1c2f);
+  color: #fcd5ce;
+  padding: 50px 20px 30px;
+  font-family: 'Quicksand', sans-serif;
 }
 
 .footer-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 30px;
   max-width: 1200px;
-  margin: 0 auto 20px auto;
-}
-
-.footer-logo h2 {
-  font-size: 1.8rem;
-  color: #f8fafc;
-  margin-bottom: 10px;
-  font-weight: 600;
-}
-
-.footer-logo p {
-  font-size: 0.95rem;
-  color: #94a3b8;
-  max-width: 280px;
-}
-
-.footer-links {
+  margin: auto;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  gap: 40px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+/* Brand / Contact Info */
+.footer-brand h2 {
+  font-size: 1.8rem;
+  color: #edae49;
+}
+
+.footer-brand p {
+  max-width: 300px;
+  margin: 10px 0 20px;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.footer-contact p {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  gap: 8px;
+  opacity: 0.8;
+}
+
+.footer-icon {
+  color: #edae49;
+}
+
+/* Quick Links */
+.footer-links h4 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #ffcf91;
 }
 
 .footer-links a {
-  color: #cbd5e1;
+  display: block;
+  margin-bottom: 8px;
   text-decoration: none;
-  font-size: 0.95rem;
-  transition: color 0.3s ease;
+  color: #fcd5ce;
+  transition: 0.3s;
 }
 
 .footer-links a:hover {
-  color: #e76f51;
+  color: #edae49;
 }
 
-.footer-social p {
+/* Social + Newsletter */
+.footer-right h4 {
+  font-size: 1.2rem;
   margin-bottom: 10px;
-  font-weight: 500;
+  color: #ffcf91;
 }
 
-.social-icons {
+.footer-social {
   display: flex;
-  gap: 15px;
+  gap: 14px;
+  margin-bottom: 20px;
 }
 
-.icon {
-  font-size: 1.4rem;
-  color: #cbd5e1;
-  transition: color 0.3s ease;
+.footer-social a .icon {
+  font-size: 1.2rem;
+  color: #fcd5ce;
+  transition: 0.3s;
 }
 
-.icon:hover {
-  color: #e76f51;
+.footer-social a:hover .icon {
+  color: #edae49;
+  transform: scale(1.2);
 }
 
-hr {
+/* Newsletter */
+.newsletter {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.newsletter input {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.newsletter input::placeholder {
+  color: #ccc;
+}
+
+.newsletter button {
+  padding: 8px 16px;
+  background: #edae49;
+  color: #0f172a;
   border: none;
-  border-top: 1px solid #334155;
-  margin: 20px 0;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
-.footer p {
+.newsletter button:hover {
+  background: #d18c2c;
+}
+
+/* Divider and copyright */
+.footer hr {
+  margin: 30px 0 10px;
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-copy {
   text-align: center;
   font-size: 0.85rem;
-  color: #94a3b8;
+  color: rgba(255, 255, 255, 0.6);
 }
 
-/* ✅ Tablet: ≤ 768px */
+/* Responsive */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
@@ -85,51 +140,17 @@ hr {
     text-align: center;
   }
 
-  .footer-logo h2 {
-    font-size: 1.6rem;
+  .footer-brand, .footer-links, .footer-right {
+    width: 100%;
   }
 
-  .footer-logo p {
-    font-size: 0.9rem;
+  .newsletter {
+    flex-direction: column;
+    width: 100%;
   }
 
-  .footer-links {
-    align-items: center;
-  }
-
-  .footer-links a {
-    font-size: 0.9rem;
-  }
-
-  .footer-social {
-    align-items: center;
-  }
-}
-
-/* ✅ Mobile: ≤ 480px */
-@media (max-width: 480px) {
-  .footer-logo h2 {
-    font-size: 1.4rem;
-  }
-
-  .footer-logo p,
-  .footer-links a {
-    font-size: 0.85rem;
-  }
-
-  .icon {
-    font-size: 1.2rem;
-  }
-
-  .footer p {
-    font-size: 0.8rem;
-  }
-
-  .social-icons {
-    gap: 12px;
-  }
-
-  .footer-links {
-    gap: 8px;
+  .newsletter input,
+  .newsletter button {
+    width: 100%;
   }
 }
