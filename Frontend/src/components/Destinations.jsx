@@ -1,62 +1,60 @@
-import React from 'react';
-import '../styles/Destinations.css';
+import React from "react";
+import dubaiImg from "../assets/dubai.jpg";
+import goaImg from "../assets/goa.jpg";
+import manaliImg from "../assets/manali.jpg";
+import parisImg from "../assets/paris.jpg";
+import "../styles/Destinations.css";
 
-import goaImg from '../assets/goa.jpg';
-import manaliImg from '../assets/manali.jpg';
-import dubaiImg from '../assets/dubai.jpg';
-import parisImg from '../assets/paris.jpg';
-
-const destinations = [
+const places = [
   {
-    name: 'Goa',
-    image: goaImg,
-    description: 'Relax on the sandy beaches with vibrant nightlife, seafood, and stunning sunsets. Ideal for both peace and party lovers.',
-    price: 'From ₹7,999',
-    duration: '3 Nights / 4 Days'
-  },
-  {
-    name: 'Manali',
-    image: manaliImg,
-    description: 'Explore the snow-capped Himalayas, river rafting, and beautiful valleys. A perfect escape to the mountains.',
-    price: 'From ₹9,499',
-    duration: '4 Nights / 5 Days'
-  },
-  {
-    name: 'Dubai',
+    name: "Dubai, UAE",
+    description: "Marvel at futuristic skyscrapers, luxury shopping, and vibrant nightlife in the heart of the desert.",
+    tours: 3,
     image: dubaiImg,
-    description: 'Luxury shopping, modern architecture, desert safari, and Arabian culture await you in this dynamic city.',
-    price: 'From ₹24,999',
-    duration: '5 Nights / 6 Days'
   },
   {
-    name: 'Paris',
+    name: "Goa, India",
+    description: "Relax on sun-kissed beaches, enjoy lively parties, and explore Portuguese heritage in this coastal paradise.",
+    tours: 2,
+    image: goaImg,
+  },
+  {
+    name: "Manali, India",
+    description: "Experience snow-capped mountains, adventure sports, and serene valleys in this Himalayan retreat.",
+    tours: 4,
+    image: manaliImg,
+  },
+  {
+    name: "Paris, France",
+    description: "Stroll through romantic streets, visit iconic landmarks, and savor world-class cuisine in the City of Light.",
+    tours: 2,
     image: parisImg,
-    description: 'Feel the romance in the City of Lights with the Eiffel Tower, museums, and cafes. A dreamy international getaway.',
-    price: 'From ₹49,999',
-    duration: '6 Nights / 7 Days'
   },
 ];
 
 const Destinations = () => {
-  const repeatedDestinations = [...destinations, ...destinations]; // repeat for infinite scroll effect
-
   return (
-    <section className="destinations">
-      <h2>Top Destinations</h2>
-      <div className="cards">
-        {repeatedDestinations.map((place, index) => (
-          <div className="card" key={index}>
-            <img src={place.image} alt={place.name} />
-            <h3>{place.name}</h3>
-            <p>{place.description}</p>
-            <p className="trip-info">
-              <strong>{place.duration}</strong> &nbsp;|&nbsp; <span>{place.price}</span>
-            </p>
-            <button className="book-now">Book Now</button>
-          </div>
-        ))}
+    <section className="destination-section">
+  <div className="destination-heading">
+    <h1>Explore Our Top Destinations</h1>
+    <p>Handpicked places to inspire your next adventure</p>
+  </div>
+
+  <div className="destination-grid">
+    {places.map((place, index) => (
+      <div className="destination-card" key={index}>
+        <img src={place.image} alt={place.name} />
+        <div className="tours-tag">{place.tours} tours</div>
+        <div className="destination-overlay">
+          <h2 className="destination-title">{place.name}</h2>
+          <p className="destination-description">{place.description}</p>
+          <a className="destination-button" href="#">View all tours</a>
+        </div>
       </div>
-    </section>
+    ))}
+  </div>
+</section>
+
   );
 };
 

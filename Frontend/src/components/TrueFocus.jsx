@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import "../styles/TrueFocus.css"; // Adjust the path as necessary
 
 const TrueFocus = ({
+  words: wordsProp,
   sentence = "True Focus",
   manualMode = false,
   blurAmount = 5,
@@ -11,7 +12,8 @@ const TrueFocus = ({
   animationDuration = 0.5,
   pauseBetweenAnimations = 1,
 }) => {
-  const words = sentence.split(" ");
+
+  const words = wordsProp || sentence.split(" ");
   const [currentIndex, setCurrentIndex] = useState(0);
   const [lastActiveIndex, setLastActiveIndex] = useState(null);
   const containerRef = useRef(null);

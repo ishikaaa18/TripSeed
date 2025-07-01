@@ -1,144 +1,184 @@
-.destinations {
-  padding: 40px 20px;
-  background-color: var(--bg-secondary);
-  text-align: center;
-}
-
-.destinations h2 {
-  font-size: 2.2rem;
-  margin-bottom: 30px;
-  color: var(--text-light);
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-/* 🔄 Horizontal Scroll Area with Auto-Scroll */
-.cards {
-  display: flex;
-  gap: 24px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding-bottom: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
-  scrollbar-width: none;         /* Firefox */
-  -ms-overflow-style: none;      /* IE 10+ */
-  max-width: 100%;
-  margin: 0 auto;                /* center the scroll container */
-  box-sizing: border-box;
-}
-
-.cards::-webkit-scrollbar {
-  display: none;                /* Chrome, Safari */
-}
-
-
-/* 🛑 Pause scroll on hover */
-.cards:hover {
-  animation-play-state: paused;
-}
-
-/* 🎞️ Auto scroll animation */
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* 🎴 Card Styles */
-.card {
-  flex: 0 0 25%;
-  background-color: var(--card-bg);
-  border-radius: 16px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  text-align: center;
-}
-
-/* 🔄 Responsive Widths */
-@media (max-width: 1024px) {
-  .card {
-    flex: 0 0 33.333%;
-  }
-}
-
-@media (max-width: 768px) {
-  .card {
-    flex: 0 0 50%;
-  }
-}
-
-@media (max-width: 500px) {
-  .card {
-    flex: 0 0 85%;
-  }
-}
-
-/* 🔸 Custom Color Cards */
-.card:nth-child(1) {
-  background-color: var(--goa-theme);
-  color: #1f1f1f;
-}
-.card:nth-child(2) {
-  background-color: var(--manali-theme);
-}
-.card:nth-child(3) {
-  background-color: var(--dubai-theme);
-}
-.card:nth-child(4) {
-  background-color: var(--paris-theme);
-}
-
-/* Hover Effect */
-.card:hover {
-  transform: scale(1.08) translateY(-12px);
-  z-index: 2;
-}
-
-/* Card Inner */
-.card img {
+/* 🌌 Section background to match Hero overlay */
+.destination-section {
+  min-height: 100vh;
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  background: linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.95));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 40px;
+  box-sizing: border-box;
+  font-family: 'Quicksand', sans-serif;
+   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 4px 18px rgba(255, 255, 255, 0.06);
+   flex-direction: column
 }
 
-.card h3 {
-  margin: 15px 0 8px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-light);
+/* 🎯 Grid layout for cards */
+.destination-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 40px;
+  max-width: 1400px;
+  width: 100%;
 }
-
-.card p {
-  font-size: 0.95rem;
-  padding: 0 12px;
-  color: #f1f5f9;
-  margin-bottom: 10px;
-}
-
-.trip-info {
-  font-size: 0.9rem;
-  color: #fcd34d;
-  font-weight: 500;
-  margin-bottom: 14px;
-}
-
-.book-now {
-  background-color: var(--button-bg);
-  color: #1f1f1f;
-  border: none;
-  padding: 10px 20px;
+.destination-heading {
+  text-align: center;
   margin-bottom: 20px;
-  border-radius: 30px;
-  cursor: pointer;
-  font-size: 0.95rem;
-  transition: background-color 0.3s ease;
 }
 
-.book-now:hover {
-  background-color: var(--button-hover);
+.destination-heading h1 {
+  font-size: 2.4rem;
+  background: linear-gradient(to right, #ff9a8b, #ff6f61, #d387ab);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-weight: 700;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.destination-heading h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 12px auto 0;
+  background: linear-gradient(to right, #ff6f61, #d387ab);
+  border-radius: 2px;
+}
+
+.destination-heading p {
+  color: #fcd5ce;
+  font-size: 1rem;
+  font-weight: 500;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 0.8;
+}
+
+
+/* 🧊 Individual destination card with glassmorphism */
+.destination-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  height: 480px;
+  width: 300px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.destination-card:hover {
+  transform: translateY(-8px);
+}
+
+/* 🖼️ Background image */
+.destination-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+/* 🟦 Tours badge */
+.tours-tag {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: #627ef9;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  z-index: 3;
+}
+
+/* 🎭 Dark overlay on hover */
+.destination-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  color: #fff;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.4s ease;
+}
+
+.destination-card:hover .destination-overlay {
+  opacity: 1;
+}
+
+/* 📝 Title */
+.destination-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+/* 📖 Description */
+.destination-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #fcd5ce;
+  max-width: 90%;
+}
+
+/* 🔗 Button */
+.destination-button {
+  margin-top: 1.4rem;
+  color: #ff6f61;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.destination-button:hover {
+  color: #ff4d4d;
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .destination-card {
+    width: 90%;
+    height: 420px;
+  }
+
+  .destination-title {
+    font-size: 1.2rem;
+  }
+
+  .destination-description {
+    font-size: 0.95rem;
+  }
+}
+@media (max-width: 1280px) {
+  .destination-grid {
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .destination-card {
+    flex-shrink: 0;
+  }
 }
